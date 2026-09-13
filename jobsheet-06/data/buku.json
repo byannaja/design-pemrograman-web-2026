@@ -1,0 +1,82 @@
+[
+    {
+        "no": 1,
+        "judul": "Laskar Pelangi",
+        "pengarang": "Andrea Hirata",
+        "tahun": 2005,
+        "stok": 4,
+        "kategori": "Novel"
+    },
+    {
+        "no": 2,
+        "judul": "Bumi Manusia",
+        "pengarang": "Pramoedya Ananta Toer",
+        "tahun": 1980,
+        "stok": 2,
+        "kategori": "Novel"
+    },
+    {
+        "no": 3,
+        "judul": "Negeri 5 Menara",
+        "pengarang": "Ahmad Fuadi",
+        "tahun": 2009,
+        "stok": 0,
+        "kategori": "Novel"
+    },
+    {
+        "no": 4,
+        "judul": "Filosofi Teras",
+        "pengarang": "Henry Manampiring",
+        "tahun": 2018,
+        "stok": 5,
+        "kategori": "Pengembangan Diri"
+    },
+    {
+        "no": 5,
+        "judul": "Ronggeng Dukuh Paruk",
+        "pengarang": "Ahmad Tohari",
+        "tahun": 1982,
+        "stok": 1,
+        "kategori": "Novel"
+    },
+    {
+        "no": 6,
+        "judul": "Bumi Manusia",
+        "pengarang": "Pramoedya Ananta Toer",
+        "tahun": 1980,
+        "stok": 2,
+        "kategori": "Novel"
+    },
+    {
+        "no": 7,
+        "judul": "Lenyap",
+        "pengarang": "Richard Kemen",
+        "tahun": 2024,
+        "stok": 3,
+        "kategori": "Novel"
+    },
+    {
+        "no": 8,
+        "judul": "Ayat-Ayat Cinta",
+        "pengarang": "Habiburrahman El Shirazy",
+        "tahun": 2004,
+        "stok": 6,
+        "kategori": "Novel"
+    },
+    {
+        "no": 9,
+        "judul": "Bogor Mengaduk Waktu",
+        "pengarang": "Bhuanasastra",
+        "tahun": 2022,
+        "stok": 2,
+        "kategori": "Novel"
+    },
+    {
+        "no": 10,
+        "judul": "Perahu Kertas",
+        "pengarang": "Dee Lestari",
+        "tahun": 2009,
+        "stok": 0,
+        "kategori": "Novel"
+    }
+]
