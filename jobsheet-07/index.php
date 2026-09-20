@@ -1,0 +1,62 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda - SIMPUS-Mini</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>SIMPUS-Mini</h1>
+        <button id="nav-toggle" class="nav-toggle" type="button">&#9776;</button>
+        <nav>
+            <ul>
+                <li><a href="index.php">Beranda</a></li>
+                <li><a href="buku/list.php">Daftar Buku</a></li>
+                <li><a href="buku/tambah.php">Tambah Buku</a></li>
+                <li><a href="anggota/list.php">Daftar Anggota</a></li>
+                <li><a href="anggota/tambah.php">Tambah Anggota</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Selamat Datang di Sistem Perpustakaan Mini</h2>
+            <p>Aplikasi sederhana untuk mengelola data buku dan anggota perpustakaan.</p>
+        </section>
+
+        <section>
+            <h2>Ringkasan</h2>
+            <div class="stats-container">
+                <article>
+                    <h3>Total Buku</h3>
+                    <p>10</p>
+                </article>
+                <article>
+                    <h3>Total Anggota</h3>
+                    <p>10</p>
+                </article>
+                <article>
+                    <h3>Sedang Dipinjam</h3>
+                    <p>3</p>
+                </article>
+                <article>
+                    <h3>Buku Terlambat</h3>
+                    <p>2</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 7</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
