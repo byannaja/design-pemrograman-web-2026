@@ -1,0 +1,17 @@
+{
+  "functions": {
+    "jobsheet-08/api/**/*.php": {
+      "runtime": "vercel-php@0.7.2"
+    }
+  },
+  "routes": [
+    {
+      "src": "/jobsheet-08/api/(.*)",
+      "dest": "/jobsheet-08/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
