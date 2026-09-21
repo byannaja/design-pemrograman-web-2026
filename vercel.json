@@ -1,10 +1,15 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
     "api/**/*.php": {
       "runtime": "vercel-php@0.7.2"
     }
   },
   "routes": [
+    {
+      "src": "/jobsheet-08/assets/(.*)",
+      "dest": "/jobsheet-08/assets/$1"
+    },
     {
       "src": "/jobsheet-08/barang/list.php",
       "dest": "/api/barang-list.php"
@@ -24,6 +29,9 @@
     {
       "src": "/jobsheet-08/index.php",
       "dest": "/api/index.php"
+    },
+    {
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
