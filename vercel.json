@@ -8,7 +8,11 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/jobsheet-08/(.*)",
+      "dest": "/jobsheet-08/$1"
+    },
+    {
+      "src": "/",
       "dest": "/jobsheet-08/index.php"
     }
   ]
