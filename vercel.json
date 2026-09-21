@@ -1,13 +1,29 @@
 {
   "functions": {
-    "jobsheet-08/api/**/*.php": {
+    "api/**/*.php": {
       "runtime": "vercel-php@0.7.2"
     }
   },
   "routes": [
     {
-      "src": "/jobsheet-08/api/(.*)",
-      "dest": "/jobsheet-08/api/$1"
+      "src": "/jobsheet-08/barang/list.php",
+      "dest": "/api/barang-list.php"
+    },
+    {
+      "src": "/jobsheet-08/barang/tambah.php",
+      "dest": "/api/barang-tambah.php"
+    },
+    {
+      "src": "/jobsheet-08/barang/edit.php",
+      "dest": "/api/barang-edit.php"
+    },
+    {
+      "src": "/jobsheet-08/barang/hapus.php",
+      "dest": "/api/barang-hapus.php"
+    },
+    {
+      "src": "/jobsheet-08/index.php",
+      "dest": "/api/index.php"
     },
     {
       "src": "/(.*)",

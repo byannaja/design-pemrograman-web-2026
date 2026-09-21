@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../includes/koneksi.php';
+require_once __DIR__ . '/../includes/koneksi.php';
 
 $id = $_GET['id'] ?? null;
 if (!$id) {
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../includes/header.php'; ?>
 
 <div class="card-box">
     <h2 class="text-xl font-bold text-slate-900 mb-6">Edit Barang</h2>
@@ -82,4 +82,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 </div>
 
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../includes/footer.php'; ?>

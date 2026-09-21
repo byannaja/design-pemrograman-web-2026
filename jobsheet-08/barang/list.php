@@ -1,13 +1,13 @@
 <?php
 session_start();
-require_once '../includes/koneksi.php';
+require_once __DIR__ . '/../includes/koneksi.php';
 $flash = $_SESSION['flash'] ?? '';
 unset($_SESSION['flash']);
 
 $stmt = $pdo->query("SELECT * FROM barang ORDER BY id DESC");
 $daftar_barang = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<?php include '../includes/header.php'; ?>
+<?php include __DIR__ . '/../includes/header.php'; ?>
 
 <div class="flex justify-between items-center mb-6">
     <div>
@@ -69,4 +69,4 @@ $daftar_barang = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </div>
 
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../includes/footer.php'; ?>
