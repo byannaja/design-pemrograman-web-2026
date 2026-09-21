@@ -1,16 +1,16 @@
 <?php
-$host = "postgres";
-$port = "5432";
-$dbname = "simpus_mini";
-$user = "postgres";
-$password = "12345";
+$host = 'aws-0-ap-south-1.pooler.supabase.com';
+$port = '5432';
+$dbname = 'postgres';
+$user = 'postgres.hsofpzsahyrldkoepzvx';
+$password = '1976Ad67@~as';
 
 try {
-    // Menggunakan PDO untuk koneksi PostgreSQL
-    $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
-    // Set error mode ke exception
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // echo "Koneksi ke database simpus_mini berhasil!";
+    $dsn = "pgsql:host=$host;port=$port;dbname=$dbname;";
+    $pdo = new PDO($dsn, $user, $password, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]);
 } catch (PDOException $e) {
     echo "Koneksi gagal: " . $e->getMessage();
 }

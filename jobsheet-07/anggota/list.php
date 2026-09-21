@@ -3,19 +3,9 @@ session_start();
 $flash = $_SESSION['flash'] ?? '';
 unset($_SESSION['flash']);
 
+// Inisialisasi session dengan array kosong
 if (!isset($_SESSION['anggota'])) {
-    $_SESSION['anggota'] = [
-        ["no_anggota" => "A001", "nama" => "Siti Aminah", "alamat" => "Malang", "no_hp" => "0812xxxx"],
-        ["no_anggota" => "A002", "nama" => "Budi Santoso", "alamat" => "Batu", "no_hp" => "0813xxxx"],
-        ["no_anggota" => "A003", "nama" => "Safik Wijaya", "alamat" => "Malang", "no_hp" => "0814xxxx"],
-        ["no_anggota" => "A004", "nama" => "Bagus Prakoso", "alamat" => "Malang", "no_hp" => "0815xxxx"],
-        ["no_anggota" => "A005", "nama" => "Likasari", "alamat" => "Batu", "no_hp" => "0816xxxx"],
-        ["no_anggota" => "A006", "nama" => "Rudi Hartono", "alamat" => "Malang", "no_hp" => "0817xxxx"],
-        ["no_anggota" => "A007", "nama" => "Maulana", "alamat" => "Pakis", "no_hp" => "0818xxxx"],
-        ["no_anggota" => "A008", "nama" => "Bambang Daeu", "alamat" => "Malang", "no_hp" => "0819xxxx"],
-        ["no_anggota" => "A009", "nama" => "Sule Prikitiw", "alamat" => "Lawang", "no_hp" => "0820xxxx"],
-        ["no_anggota" => "A010", "nama" => "Rina Sari", "alamat" => "Malang", "no_hp" => "0821xxxx"]
-    ];
+    $_SESSION['anggota'] = [];
 }
 $daftar_anggota = $_SESSION['anggota'];
 ?>
@@ -60,6 +50,7 @@ $daftar_anggota = $_SESSION['anggota'];
                 <table>
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>No Anggota</th>
                             <th>Nama</th>
                             <th>Alamat</th>
@@ -68,19 +59,26 @@ $daftar_anggota = $_SESSION['anggota'];
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($daftar_anggota as $anggota): ?>
+                        <?php if (empty($daftar_anggota)): ?>
                         <tr>
-                            <td><?= htmlspecialchars($anggota['no_anggota']) ?></td>
-                            <td><?= htmlspecialchars($anggota['nama']) ?></td>
-                            <td><?= htmlspecialchars($anggota['alamat']) ?></td>
-                            <td><?= htmlspecialchars($anggota['no_hp']) ?></td>
-                            <td>
-                                <a href="detail.php?no_anggota=<?= urlencode($anggota['no_anggota']) ?>" style="padding: 4px 8px; background: #17a2b8; color: white; text-decoration: none; border-radius: 3px; font-size: 0.9rem;">Detail</a>
-                                <a href="edit.php?no_anggota=<?= urlencode($anggota['no_anggota']) ?>" style="padding: 4px 8px; background: #ffc107; color: black; text-decoration: none; border-radius: 3px; font-size: 0.9rem;">Edit</a>
-                                <a href="hapus.php?no_anggota=<?= urlencode($anggota['no_anggota']) ?>" onclick="return confirm('Yakin ingin menghapus data ini?')" style="padding: 4px 8px; background: #dc3545; color: white; text-decoration: none; border-radius: 3px; font-size: 0.9rem;" class="btn-hapus">Hapus</a>
-                            </td>
+                            <td colspan="6" style="text-align: center;">Belum ada data anggota.</td>
                         </tr>
-                        <?php endforeach; ?>
+                        <?php else: ?>
+                            <?php $no = 0; foreach ($daftar_anggota as $anggota): ?>
+                            <tr>
+                                <td><?= $no++; ?></td>
+                                <td><?= htmlspecialchars($anggota['no_anggota']) ?></td>
+                                <td><?= htmlspecialchars($anggota['nama']) ?></td>
+                                <td><?= htmlspecialchars($anggota['alamat']) ?></td>
+                                <td><?= htmlspecialchars($anggota['no_hp']) ?></td>
+                                <td>
+                                    <a href="detail.php?no_anggota=<?= urlencode($anggota['no_anggota']) ?>" style="padding: 4px 8px; background: #17a2b8; color: white; text-decoration: none; border-radius: 3px; font-size: 0.9rem;">Detail</a>
+                                    <a href="edit.php?no_anggota=<?= urlencode($anggota['no_anggota']) ?>" style="padding: 4px 8px; background: #ffc107; color: black; text-decoration: none; border-radius: 3px; font-size: 0.9rem;">Edit</a>
+                                    <a href="hapus.php?no_anggota=<?= urlencode($anggota['no_anggota']) ?>" onclick="return confirm('Yakin ingin menghapus data ini?')" style="padding: 4px 8px; background: #dc3545; color: white; text-decoration: none; border-radius: 3px; font-size: 0.9rem;" class="btn-hapus">Hapus</a>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>

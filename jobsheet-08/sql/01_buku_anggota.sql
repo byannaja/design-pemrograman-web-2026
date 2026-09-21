@@ -1,17 +1,13 @@
--- Buat tabel buku
-CREATE TABLE IF NOT EXISTS buku (
-    id SERIAL PRIMARY KEY,
-    judul VARCHAR(255) NOT NULL,
-    pengarang VARCHAR(255) NOT NULL,
-    tahun INT NOT NULL,
-    stok INT NOT NULL DEFAULT 0,
-    kategori VARCHAR(100) NOT NULL
-);
+CREATE DATABASE IF NOT EXISTS db_inventaris_toko;
+USE db_inventaris_toko;
 
--- Buat tabel anggota
-CREATE TABLE IF NOT EXISTS anggota (
-    no_anggota VARCHAR(50) PRIMARY KEY,
-    nama VARCHAR(255) NOT NULL,
-    alamat TEXT NOT NULL,
-    no_hp VARCHAR(20) NOT NULL
+DROP TABLE IF EXISTS barang;
+CREATE TABLE barang (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    kode_barang VARCHAR(20) UNIQUE NOT NULL,
+    nama_barang VARCHAR(100) NOT NULL,
+    kategori VARCHAR(50) NOT NULL,
+    stok INT(11) NOT NULL DEFAULT 0,
+    harga_satuan DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

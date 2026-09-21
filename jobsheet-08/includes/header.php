@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIMPUS-Mini</title>
+    <title>Inventaris Toko</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body>
-    <header>
-        <h1>SIMPUS-Mini</h1>
-        <button id="nav-toggle" class="nav-toggle" type="button">&#9776;</button>
-        <nav>
-            <ul>
-                <li><a href="../index.php">Beranda</a></li>
-                <li><a href="../buku/list.php">Daftar Buku</a></li>
-                <li><a href="../buku/tambah.php">Tambah Buku</a></li>
-                <li><a href="../anggota/list.php">Daftar Anggota</a></li>
-                <li><a href="../anggota/tambah.php">Tambah Anggota</a></li>
-            </ul>
-        </nav>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+    <!-- Navbar -->
+    <header class="bg-slate-900 text-white shadow-md border-b-2 border-amber-500">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold tracking-wide flex items-center gap-2">
+                <span class="text-amber-400"></span> Inventaris Toko
+            </h1>
+            <nav>
+                <ul class="flex space-x-6 text-sm font-medium">
+                    <li><a href="../index.php" class="hover:text-amber-400 transition">Dashboard</a></li>
+                    <li><a href="../barang/list.php" class="hover:text-amber-400 transition">Daftar Barang</a></li>
+                    <li><a href="../barang/tambah.php" class="hover:text-amber-400 transition">Tambah Barang</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <main>
+    <main class="max-w-7xl mx-auto px-4 py-8">
