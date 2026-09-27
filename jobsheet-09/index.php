@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 require_once __DIR__ . '/includes/koneksi.php';
 
 try {
@@ -13,7 +14,8 @@ try {
     $totalAset = $stmtAset->fetchColumn() ?? 0;
 
     $stmtData = $pdo->query("SELECT * FROM barang ORDER BY id DESC");
-    $listBarang = $stmtData->fetchAll();
+    $listBarang = $stmtData->fetchAll(PDO::FETCH_ASSOC);
+
 } catch (Exception $e) {
     $totalBarang = 0;
     $totalStok = 0;
@@ -21,223 +23,256 @@ try {
     $listBarang = [];
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Dashboard - Inventaris Toko</title>
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <link rel="stylesheet" href="/jobsheet-08/assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body class="bg-gray-50 text-gray-800">
 
-    <header class="bg-slate-900 text-white shadow-md border-b-2 border-amber-500">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+<header class="bg-slate-900 text-white shadow-md border-b-2 border-amber-500">
 
-            <h1 class="text-xl font-bold tracking-wide flex items-center gap-2">
-                Inventaris Toko
-            </h1>
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
 
-            <nav>
-                <ul class="flex space-x-6 text-sm font-medium">
+        <h1 class="text-xl font-bold tracking-wide">
+            Inventaris Toko
+        </h1>
 
-                    <li>
-                        <a href="/jobsheet-08/index.php"
-                           class="text-amber-400 font-semibold">
-                            Dashboard
-                        </a>
-                    </li>
+        <nav>
 
-                    <li>
-                        <a href="/jobsheet-08/barang/list.php"
-                           class="hover:text-amber-400 transition">
-                            Daftar Barang
-                        </a>
-                    </li>
+            <ul class="flex space-x-6 text-sm font-medium">
 
-                    <li>
-                        <a href="/jobsheet-08/barang/tambah.php"
-                           class="hover:text-amber-400 transition">
-                            Tambah Barang
-                        </a>
-                    </li>
+                <li>
+                    <a href="index.php"
+                       class="text-amber-400 font-semibold">
+                        Dashboard
+                    </a>
+                </li>
 
-                </ul>
-            </nav>
+                <li>
+                    <a href="barang/list.php"
+                       class="hover:text-amber-400 transition">
+                        Daftar Barang
+                    </a>
+                </li>
 
-        </div>
-    </header>
+                <li>
+                    <a href="barang/tambah.php"
+                       class="hover:text-amber-400 transition">
+                        Tambah Barang
+                    </a>
+                </li>
 
-    <main class="max-w-7xl mx-auto px-4 py-8">
+            </ul>
 
-        <div class="mb-8">
-            <h2 class="text-2xl font-bold text-slate-900">
-                Dashboard Ringkasan Inventaris
-            </h2>
+        </nav>
 
-            <p class="text-sm text-gray-500">
-                Kelola stok barang masuk dan data produk toko dengan mudah.
-            </p>
-        </div>
+    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+</header>
 
-            <div class="card-stat">
-                <div>
-                    <p class="text-sm font-medium text-gray-500">
-                        Jenis Barang
-                    </p>
 
-                    <h3 class="text-3xl font-bold text-slate-900 mt-1">
-                        <?= $totalBarang; ?>
-                    </h3>
-                </div>
-            </div>
+<main class="max-w-7xl mx-auto px-4 py-8">
 
-            <div class="card-stat">
-                <div>
-                    <p class="text-sm font-medium text-gray-500">
-                        Total Stok Keseluruhan
-                    </p>
+    <div class="mb-8">
 
-                    <h3 class="text-3xl font-bold text-slate-900 mt-1">
-                        <?= $totalStok; ?>
-                    </h3>
-                </div>
-            </div>
+        <h2 class="text-2xl font-bold text-slate-900">
+            Dashboard Ringkasan Inventaris
+        </h2>
 
-            <div class="card-stat">
-                <div>
-                    <p class="text-sm font-medium text-gray-500">
-                        Estimasi Nilai Aset
-                    </p>
+        <p class="text-sm text-gray-500">
+            Kelola stok barang dan data produk toko dengan mudah.
+        </p>
 
-                    <h3 class="text-3xl font-bold text-amber-600 mt-1">
-                        Rp <?= number_format($totalAset, 0, ',', '.'); ?>
-                    </h3>
-                </div>
-            </div>
+    </div>
 
-        </div>
 
-        <div class="table-container">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
 
-            <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+        <div class="card-stat">
 
-                <h3 class="font-bold text-slate-900 text-lg">
-                    Daftar Barang Terbaru
+            <div>
+
+                <p class="text-sm font-medium text-gray-500">
+                    Jenis Barang
+                </p>
+
+                <h3 class="text-3xl font-bold text-slate-900 mt-1">
+                    <?= $totalBarang; ?>
                 </h3>
 
-                <a href="/jobsheet-08/barang/tambah.php"
-                   class="btn-primary">
-                    Tambah Barang
-                </a>
+            </div>
+
+        </div>
+
+
+        <div class="card-stat">
+
+            <div>
+
+                <p class="text-sm font-medium text-gray-500">
+                    Total Stok Keseluruhan
+                </p>
+
+                <h3 class="text-3xl font-bold text-slate-900 mt-1">
+                    <?= $totalStok; ?>
+                </h3>
 
             </div>
 
-            <div class="overflow-x-auto">
+        </div>
 
-                <table class="w-full text-left border-collapse">
 
-                    <thead>
-                        <tr class="bg-gray-50 text-gray-600 text-sm border-b border-gray-200">
+        <div class="card-stat">
 
-                            <th class="py-3 px-6">
-                                No
-                            </th>
+            <div>
 
-                            <th class="py-3 px-6">
-                                Nama Barang
-                            </th>
+                <p class="text-sm font-medium text-gray-500">
+                    Estimasi Nilai Aset
+                </p>
 
-                            <th class="py-3 px-6">
-                                Stok
-                            </th>
+                <h3 class="text-3xl font-bold text-amber-600 mt-1">
+                    Rp <?= number_format($totalAset, 0, ',', '.'); ?>
+                </h3>
 
-                            <th class="py-3 px-6">
-                                Harga Satuan
-                            </th>
+            </div>
 
-                            <th class="py-3 px-6">
-                                Total Nilai
-                            </th>
+        </div>
 
-                        </tr>
-                    </thead>
+    </div>
 
-                    <tbody class="divide-y divide-gray-100 text-sm">
 
-                        <?php if (!empty($listBarang)): ?>
+    <div class="table-container">
 
-                            <?php $no = 1; ?>
+        <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
 
-                            <?php foreach ($listBarang as $row): ?>
+            <h3 class="font-bold text-slate-900 text-lg">
+                Daftar Barang Terbaru
+            </h3>
 
-                                <tr class="hover:bg-gray-50 transition">
+            <a href="barang/tambah.php"
+               class="btn-primary">
+                Tambah Barang
+            </a>
 
-                                    <td class="py-3 px-6 font-medium text-gray-500">
-                                        <?= $no++; ?>
-                                    </td>
+        </div>
 
-                                    <td class="py-3 px-6 font-semibold text-slate-900">
-                                        <?= htmlspecialchars($row['nama_barang'] ?? ''); ?>
-                                    </td>
 
-                                    <td class="py-3 px-6">
-                                        <?= htmlspecialchars($row['stok'] ?? 0); ?>
-                                    </td>
+        <div class="overflow-x-auto">
 
-                                    <td class="py-3 px-6">
-                                        Rp <?= number_format($row['harga_satuan'] ?? 0, 0, ',', '.'); ?>
-                                    </td>
+            <table class="w-full text-left border-collapse">
 
-                                    <td class="py-3 px-6 font-medium text-amber-600">
-                                        Rp <?= number_format(
-                                            ($row['stok'] ?? 0) * ($row['harga_satuan'] ?? 0),
-                                            0,
-                                            ',',
-                                            '.'
-                                        ); ?>
-                                    </td>
+                <thead>
 
-                                </tr>
+                    <tr class="bg-gray-50 text-gray-600 text-sm border-b border-gray-200">
 
-                            <?php endforeach; ?>
+                        <th class="py-3 px-6">
+                            No
+                        </th>
 
-                        <?php else: ?>
+                        <th class="py-3 px-6">
+                            Nama Barang
+                        </th>
 
-                            <tr>
+                        <th class="py-3 px-6">
+                            Stok
+                        </th>
 
-                                <td colspan="5"
-                                    class="py-6 text-center text-gray-400">
-                                    Belum ada data barang di database.
+                        <th class="py-3 px-6">
+                            Harga Satuan
+                        </th>
+
+                        <th class="py-3 px-6">
+                            Total Nilai
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody class="divide-y divide-gray-100 text-sm">
+
+                    <?php if (!empty($listBarang)): ?>
+
+                        <?php $no = 1; ?>
+
+                        <?php foreach ($listBarang as $row): ?>
+
+                            <tr class="hover:bg-gray-50 transition">
+
+                                <td class="py-3 px-6 font-medium text-gray-500">
+                                    <?= $no++; ?>
+                                </td>
+
+                                <td class="py-3 px-6 font-semibold text-slate-900">
+                                    <?= htmlspecialchars($row['nama_barang']); ?>
+                                </td>
+
+                                <td class="py-3 px-6">
+                                    <?= htmlspecialchars($row['stok']); ?>
+                                </td>
+
+                                <td class="py-3 px-6">
+                                    Rp <?= number_format($row['harga_satuan'], 0, ',', '.'); ?>
+                                </td>
+
+                                <td class="py-3 px-6 font-medium text-amber-600">
+                                    Rp <?= number_format(
+                                        $row['stok'] * $row['harga_satuan'],
+                                        0,
+                                        ',',
+                                        '.'
+                                    ); ?>
                                 </td>
 
                             </tr>
 
-                        <?php endif; ?>
+                        <?php endforeach; ?>
 
-                    </tbody>
+                    <?php else: ?>
 
-                </table>
+                        <tr>
 
-            </div>
+                            <td colspan="5"
+                                class="py-6 text-center text-gray-400">
+
+                                Belum ada data barang di database.
+
+                            </td>
+
+                        </tr>
+
+                    <?php endif; ?>
+
+                </tbody>
+
+            </table>
 
         </div>
 
-    </main>
+    </div>
 
-    <footer class="bg-white border-t border-gray-200 mt-12 py-4 text-center text-sm text-gray-500">
+</main>
 
-        <p>
-            &copy; Toserba Prikitiw &mdash; Sistem Manajemen Inventaris
-        </p>
 
-    </footer>
+<footer class="bg-white border-t border-gray-200 mt-12 py-4 text-center text-sm text-gray-500">
+
+    <p>
+        &copy; Toserba Prikitiw &mdash; Sistem Manajemen Inventaris
+    </p>
+
+</footer>
 
 </body>
 </html>
