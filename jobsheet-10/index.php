@@ -73,12 +73,6 @@ try {
                     </a>
                 </li>
 
-                <li>
-                    <a href="/jobsheet-10/barang/tambah.php"
-                       class="hover:text-amber-400 transition">
-                        Tambah Barang
-                    </a>
-                </li>
 
                 <li>
                     <a href="/jobsheet-10/supplier/list.php"
