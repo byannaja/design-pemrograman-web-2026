@@ -37,39 +37,47 @@
     },
     {
       "src": "/jobsheet-09/barang/list.php",
-      "dest": "/api/jobsheet09-barang-list.php"
+      "dest": "/api/jobsheet09.php?__target=barang-list"
     },
     {
       "src": "/jobsheet-09/barang/tambah.php",
-      "dest": "/api/jobsheet09-barang-tambah.php"
+      "dest": "/api/jobsheet09.php?__target=barang-tambah"
     },
     {
       "src": "/jobsheet-09/barang/edit.php",
-      "dest": "/api/jobsheet09-barang-edit.php"
+      "dest": "/api/jobsheet09.php?__target=barang-edit"
+    },
+    {
+      "src": "/jobsheet-09/barang/proses_edit.php",
+      "dest": "/api/jobsheet09.php?__target=barang-proses-edit"
     },
     {
       "src": "/jobsheet-09/barang/hapus.php",
-      "dest": "/api/jobsheet09-barang-hapus.php"
+      "dest": "/api/jobsheet09.php?__target=barang-hapus"
     },
     {
       "src": "/jobsheet-09/supplier/list.php",
-      "dest": "/api/jobsheet09-supplier-list.php"
+      "dest": "/api/jobsheet09.php?__target=supplier-list"
     },
     {
       "src": "/jobsheet-09/supplier/tambah.php",
-      "dest": "/api/jobsheet09-supplier-tambah.php"
+      "dest": "/api/jobsheet09.php?__target=supplier-tambah"
     },
     {
       "src": "/jobsheet-09/supplier/edit.php",
-      "dest": "/api/jobsheet09-supplier-edit.php"
+      "dest": "/api/jobsheet09.php?__target=supplier-edit"
+    },
+    {
+      "src": "/jobsheet-09/supplier/proses_edit.php",
+      "dest": "/api/jobsheet09.php?__target=supplier-proses-edit"
     },
     {
       "src": "/jobsheet-09/supplier/hapus.php",
-      "dest": "/api/jobsheet09-supplier-hapus.php"
+      "dest": "/api/jobsheet09.php?__target=supplier-hapus"
     },
     {
       "src": "/jobsheet-09/index.php",
-      "dest": "/api/jobsheet09-index.php"
+      "dest": "/api/jobsheet09.php?__target=index"
     },
 
     {
