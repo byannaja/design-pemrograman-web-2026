@@ -30,6 +30,48 @@
       "src": "/jobsheet-08/index.php",
       "dest": "/api/index.php"
     },
+
+    {
+      "src": "/jobsheet-09/assets/(.*)",
+      "dest": "/jobsheet-09/assets/$1"
+    },
+    {
+      "src": "/jobsheet-09/barang/list.php",
+      "dest": "/api/jobsheet09-barang-list.php"
+    },
+    {
+      "src": "/jobsheet-09/barang/tambah.php",
+      "dest": "/api/jobsheet09-barang-tambah.php"
+    },
+    {
+      "src": "/jobsheet-09/barang/edit.php",
+      "dest": "/api/jobsheet09-barang-edit.php"
+    },
+    {
+      "src": "/jobsheet-09/barang/hapus.php",
+      "dest": "/api/jobsheet09-barang-hapus.php"
+    },
+    {
+      "src": "/jobsheet-09/supplier/list.php",
+      "dest": "/api/jobsheet09-supplier-list.php"
+    },
+    {
+      "src": "/jobsheet-09/supplier/tambah.php",
+      "dest": "/api/jobsheet09-supplier-tambah.php"
+    },
+    {
+      "src": "/jobsheet-09/supplier/edit.php",
+      "dest": "/api/jobsheet09-supplier-edit.php"
+    },
+    {
+      "src": "/jobsheet-09/supplier/hapus.php",
+      "dest": "/api/jobsheet09-supplier-hapus.php"
+    },
+    {
+      "src": "/jobsheet-09/index.php",
+      "dest": "/api/jobsheet09-index.php"
+    },
+
     {
       "handle": "filesystem"
     },
