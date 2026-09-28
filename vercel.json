@@ -7,6 +7,26 @@
   },
   "routes": [
     {
+      "src": "/jobsheet-07/index.php",
+      "dest": "/api/jobsheet07.php?__target=index"
+    },
+    {
+      "src": "/jobsheet-07/?$",
+      "dest": "/api/jobsheet07.php?__target=index"
+    },
+    {
+      "src": "/jobsheet-07/anggota/list.php",
+      "dest": "/api/jobsheet07.php?__target=anggota-list"
+    },
+    {
+      "src": "/jobsheet-07/anggota/tambah.php",
+      "dest": "/api/jobsheet07.php?__target=anggota-tambah"
+    },
+    {
+      "src": "/jobsheet-07/anggota/proses_tambah.php",
+      "dest": "/api/jobsheet07.php?__target=anggota-proses-tambah"
+    },
+    {
       "src": "/jobsheet-08/assets/(.*)",
       "dest": "/jobsheet-08/assets/$1"
     },
