@@ -1,8 +1,6 @@
 <?php
-require_once __DIR__ . '/../../jobsheet-11/includes/session.php';
-require_once __DIR__ . '/../../jobsheet-11/includes/auth.php';
-require_once __DIR__ . '/../../jobsheet-11/includes/koneksi.php';
-require_once __DIR__ . '/../../jobsheet-11/includes/security.php';
+require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../includes/security.php';
 
 $jenis = $_GET['jenis'] ?? '';
 $allowedTypes = ['masuk', 'keluar'];
@@ -20,7 +18,7 @@ $transactions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $flash = $_SESSION['flash'] ?? '';
 unset($_SESSION['flash']);
 ?>
-<?php include __DIR__ . '/../../jobsheet-11/includes/header.php'; ?>
+<?php include __DIR__ . '/../includes/header.php'; ?>
 
 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
     <div>
@@ -68,4 +66,4 @@ unset($_SESSION['flash']);
     </div>
 </div>
 
-<?php include __DIR__ . '/../../jobsheet-11/includes/footer.php'; ?>
+<?php include __DIR__ . '/../includes/footer.php'; ?>

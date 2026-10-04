@@ -1,8 +1,6 @@
 <?php
-require_once __DIR__ . '/../../jobsheet-11/includes/session.php';
-require_once __DIR__ . '/../../jobsheet-11/includes/auth.php';
-require_once __DIR__ . '/../../jobsheet-11/includes/koneksi.php';
-require_once __DIR__ . '/../../jobsheet-11/includes/security.php';
+require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../includes/security.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: /jobsheet-12/transaksi/tambah.php');

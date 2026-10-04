@@ -223,6 +223,26 @@
     },
 
     {
+      "src": "/jobsheet-12/assets/(.*)",
+      "dest": "/jobsheet-12/assets/$1"
+    },
+    {
+      "src": "/jobsheet-12/auth/login.php",
+      "dest": "/api/jobsheet12.php?__target=auth-login"
+    },
+    {
+      "src": "/jobsheet-12/auth/register.php",
+      "dest": "/api/jobsheet12.php?__target=auth-register"
+    },
+    {
+      "src": "/jobsheet-12/auth/logout.php",
+      "dest": "/api/jobsheet12.php?__target=auth-logout"
+    },
+    {
+      "src": "/jobsheet-12/barang/list.php",
+      "dest": "/api/jobsheet12.php?__target=barang-list"
+    },
+    {
       "src": "/jobsheet-12/transaksi/list.php",
       "dest": "/api/jobsheet12.php?__target=transaksi-list"
     },

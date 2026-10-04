@@ -1,8 +1,6 @@
 <?php
-require_once __DIR__ . '/../jobsheet-11/includes/session.php';
-require_once __DIR__ . '/../jobsheet-11/includes/auth.php';
-require_once __DIR__ . '/../jobsheet-11/includes/koneksi.php';
-require_once __DIR__ . '/../jobsheet-11/includes/security.php';
+require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/security.php';
 
 $stmtSummary = $pdo->query(
     "SELECT COUNT(*) AS total,
@@ -21,7 +19,7 @@ $stmtRecent = $pdo->query(
 );
 $recent = $stmtRecent->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<?php include __DIR__ . '/../jobsheet-11/includes/header.php'; ?>
+<?php include __DIR__ . '/includes/header.php'; ?>
 
 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
     <div>
@@ -29,6 +27,7 @@ $recent = $stmtRecent->fetchAll(PDO::FETCH_ASSOC);
         <p class="text-sm text-gray-500">Catat barang masuk dan keluar dengan riwayat yang terlacak.</p>
     </div>
     <div class="flex gap-3">
+        <a href="/jobsheet-12/barang/list.php" class="btn-secondary">Data Barang</a>
         <a href="/jobsheet-12/transaksi/list.php" class="btn-secondary">Riwayat Mutasi</a>
         <a href="/jobsheet-12/transaksi/tambah.php" class="btn-primary">Catat Mutasi</a>
     </div>
@@ -67,4 +66,4 @@ $recent = $stmtRecent->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </div>
 
-<?php include __DIR__ . '/../jobsheet-11/includes/footer.php'; ?>
+<?php include __DIR__ . '/includes/footer.php'; ?>

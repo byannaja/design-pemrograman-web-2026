@@ -1,15 +1,13 @@
 <?php
-require_once __DIR__ . '/../../jobsheet-11/includes/session.php';
-require_once __DIR__ . '/../../jobsheet-11/includes/auth.php';
-require_once __DIR__ . '/../../jobsheet-11/includes/koneksi.php';
-require_once __DIR__ . '/../../jobsheet-11/includes/security.php';
+require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../includes/security.php';
 
 $stmt = $pdo->query('SELECT id, kode_barang, nama_barang, stok FROM barang ORDER BY nama_barang');
 $barangList = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $error = $_SESSION['form_error'] ?? '';
 unset($_SESSION['form_error']);
 ?>
-<?php include __DIR__ . '/../../jobsheet-11/includes/header.php'; ?>
+<?php include __DIR__ . '/../includes/header.php'; ?>
 
 <div class="max-w-2xl mx-auto">
     <div class="mb-6">
@@ -60,4 +58,4 @@ unset($_SESSION['form_error']);
     </div>
 </div>
 
-<?php include __DIR__ . '/../../jobsheet-11/includes/footer.php'; ?>
+<?php include __DIR__ . '/../includes/footer.php'; ?>
