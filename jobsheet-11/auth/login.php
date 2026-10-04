@@ -1,7 +1,12 @@
 <?php
-session_start();
+require_once __DIR__ . '/../includes/session.php';
 require_once __DIR__ . '/../includes/koneksi.php';
 require_once __DIR__ . '/../includes/security.php';
+
+$returnTo = $_POST['return_to'] ?? $_GET['return_to'] ?? '';
+if (!preg_match('#^/(jobsheet-(11|12)/|api/jobsheet(11|12)\.php(?:\?|$))#', $returnTo) || str_starts_with($returnTo, '//')) {
+    $returnTo = '/jobsheet-11/index.php';
+}
 
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -20,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['nama_lengkap'] = $user['nama_lengkap'];
         $_SESSION['role'] = $user['role'];
         
-        header("Location: /jobsheet-11/index.php");
+        header('Location: ' . $returnTo);
         exit;
     } else {
         $error = "Username atau password salah!";
@@ -45,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <form action="" method="POST" class="space-y-4">
+            <input type="hidden" name="return_to" value="<?= e($returnTo) ?>">
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">Username</label>
                 <input type="text" name="username" required class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 outline-none">
@@ -55,6 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold py-2 rounded-lg transition">Masuk</button>
         </form>
+        <p class="text-center text-sm text-gray-500 mt-4">
+            Belum punya akun? <a href="/jobsheet-11/auth/register.php" class="text-amber-600 font-medium hover:underline">Daftar</a>
+        </p>
     </div>
 </body>
 </html>

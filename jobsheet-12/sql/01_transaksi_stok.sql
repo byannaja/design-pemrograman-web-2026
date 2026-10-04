@@ -9,3 +9,12 @@ CREATE TABLE IF NOT EXISTS transaksi_stok (
 
 CREATE INDEX IF NOT EXISTS idx_transaksi_stok_barang_tanggal
     ON transaksi_stok (barang_id, created_at DESC);
+
+CREATE TABLE IF NOT EXISTS app_sessions (
+    session_id VARCHAR(128) PRIMARY KEY,
+    session_data TEXT NOT NULL,
+    last_activity BIGINT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_app_sessions_last_activity
+    ON app_sessions (last_activity);

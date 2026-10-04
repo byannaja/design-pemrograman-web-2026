@@ -1,7 +1,5 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+require_once __DIR__ . '/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -37,6 +35,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         <li><a href="/jobsheet-11/auth/logout.php" class="bg-rose-600 hover:bg-rose-700 px-3 py-1.5 rounded transition text-white">Logout</a></li>
                     <?php else: ?>
                         <li><a href="/jobsheet-11/auth/login.php" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold px-3 py-1.5 rounded transition">Login</a></li>
+                        <li><a href="/jobsheet-11/auth/register.php" class="hover:text-amber-400 transition">Daftar</a></li>
                     <?php endif; ?>
                 </ul>
             </nav>

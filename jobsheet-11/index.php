@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once __DIR__ . '/includes/session.php';
 
 require_once __DIR__ . '/includes/koneksi.php';
 
@@ -100,6 +100,11 @@ try {
                     <li>
                         <a href="/jobsheet-11/auth/login.php" class="bg-amber-500 hover:bg-amber-600 px-3 py-1.5 rounded transition text-slate-900 font-semibold">
                             Login
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/jobsheet-11/auth/register.php" class="hover:text-amber-400 transition">
+                            Daftar
                         </a>
                     </li>
                 <?php endif; ?>

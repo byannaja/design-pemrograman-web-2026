@@ -1,10 +1,8 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+require_once __DIR__ . '/session.php';
 
-// Cek apakah user sudah login
 if (!isset($_SESSION['user_id'])) {
-    header("Location: /jobsheet-11/auth/login.php");
+    $returnTo = $_SERVER['REQUEST_URI'] ?? '/jobsheet-11/index.php';
+    header('Location: /jobsheet-11/auth/login.php?return_to=' . rawurlencode($returnTo));
     exit;
 }

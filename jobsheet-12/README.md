@@ -4,13 +4,13 @@ Jobsheet ini melanjutkan aplikasi inventaris Jobsheet 11. Tabel `transaksi_stok`
 
 ## Persiapan Database
 
-Jalankan skema sekali pada database PostgreSQL yang sama dengan Jobsheet 11:
+Jalankan skema sekali pada database PostgreSQL yang sama dengan Jobsheet 11. Skema ini juga menyiapkan penyimpanan session bersama agar login tetap terbaca lintas Vercel Functions:
 
 ```bash
 psql "$DATABASE_URL" -f sql/01_transaksi_stok.sql
 ```
 
-Pastikan tabel `barang` tersedia sebelum menjalankan skema.
+Pastikan tabel `barang` tersedia sebelum menjalankan skema. Setelah deploy, login ulang agar session baru tersimpan di PostgreSQL.
 
 ## Alur Pengujian
 
