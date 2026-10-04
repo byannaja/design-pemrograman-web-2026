@@ -1,6 +1,14 @@
 <?php
 require_once __DIR__ . '/koneksi.php';
 
+$pdo->exec(
+    'CREATE TABLE IF NOT EXISTS app_sessions (
+        session_id VARCHAR(128) PRIMARY KEY,
+        session_data TEXT NOT NULL,
+        last_activity BIGINT NOT NULL
+    )'
+);
+
 session_name('INVENTARISSESSID');
 
 $openSession = static function ($path, $name) {
