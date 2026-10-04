@@ -30,6 +30,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <li><a href="/jobsheet-11/index.php" class="hover:text-amber-400 transition">Dashboard</a></li>
                     <li><a href="/jobsheet-11/barang/list.php" class="hover:text-amber-400 transition">Data Barang</a></li>
                     <li><a href="/jobsheet-11/supplier/list.php" class="hover:text-amber-400 transition">Data Supplier</a></li>
+                    <li><a href="/jobsheet-12/index.php" class="hover:text-amber-400 transition">Mutasi Stok</a></li>
                     
                     <?php if (isset($_SESSION['user_id'])): ?>
                         <li class="text-amber-400 font-semibold">Halo, <?= htmlspecialchars($_SESSION['nama_lengkap']) ?></li>

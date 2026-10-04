@@ -223,6 +223,23 @@
     },
 
     {
+      "src": "/jobsheet-12/transaksi/list.php",
+      "dest": "/api/jobsheet12.php?__target=transaksi-list"
+    },
+    {
+      "src": "/jobsheet-12/transaksi/tambah.php",
+      "dest": "/api/jobsheet12.php?__target=transaksi-tambah"
+    },
+    {
+      "src": "/jobsheet-12/transaksi/proses_tambah.php",
+      "dest": "/api/jobsheet12.php?__target=transaksi-proses-tambah"
+    },
+    {
+      "src": "/jobsheet-12/index.php",
+      "dest": "/api/jobsheet12.php?__target=index"
+    },
+
+    {
       "handle": "filesystem"
     },
     {

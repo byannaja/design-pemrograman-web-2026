@@ -81,6 +81,12 @@ try {
                     </a>
                 </li>
 
+                <li>
+                    <a href="/jobsheet-12/index.php" class="hover:text-amber-400 transition">
+                        Mutasi Stok
+                    </a>
+                </li>
+
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <li class="text-amber-400 font-semibold">
                         Halo, <?= htmlspecialchars($_SESSION['nama_lengkap'] ?? '') ?>
