@@ -162,6 +162,67 @@
     },
 
     {
+      "src": "/jobsheet-11/assets/(.*)",
+      "dest": "/jobsheet-11/assets/$1"
+    },
+    {
+      "src": "/jobsheet-11/barang/list.php",
+      "dest": "/api/jobsheet11.php?__target=barang-list"
+    },
+    {
+      "src": "/jobsheet-11/barang/tambah.php",
+      "dest": "/api/jobsheet11.php?__target=barang-tambah"
+    },
+    {
+      "src": "/jobsheet-11/barang/edit.php",
+      "dest": "/api/jobsheet11.php?__target=barang-edit"
+    },
+    {
+      "src": "/jobsheet-11/barang/proses_edit.php",
+      "dest": "/api/jobsheet11.php?__target=barang-proses-edit"
+    },
+    {
+      "src": "/jobsheet-11/barang/hapus.php",
+      "dest": "/api/jobsheet11.php?__target=barang-hapus"
+    },
+    {
+      "src": "/jobsheet-11/supplier/list.php",
+      "dest": "/api/jobsheet11.php?__target=supplier-list"
+    },
+    {
+      "src": "/jobsheet-11/supplier/tambah.php",
+      "dest": "/api/jobsheet11.php?__target=supplier-tambah"
+    },
+    {
+      "src": "/jobsheet-11/supplier/edit.php",
+      "dest": "/api/jobsheet11.php?__target=supplier-edit"
+    },
+    {
+      "src": "/jobsheet-11/supplier/proses_edit.php",
+      "dest": "/api/jobsheet11.php?__target=supplier-proses-edit"
+    },
+    {
+      "src": "/jobsheet-11/supplier/hapus.php",
+      "dest": "/api/jobsheet11.php?__target=supplier-hapus"
+    },
+    {
+      "src": "/jobsheet-11/auth/login.php",
+      "dest": "/api/jobsheet11.php?__target=auth-login"
+    },
+    {
+      "src": "/jobsheet-11/auth/register.php",
+      "dest": "/api/jobsheet11.php?__target=auth-register"
+    },
+    {
+      "src": "/jobsheet-11/auth/logout.php",
+      "dest": "/api/jobsheet11.php?__target=auth-logout"
+    },
+    {
+      "src": "/jobsheet-11/index.php",
+      "dest": "/api/jobsheet11.php?__target=index"
+    },
+
+    {
       "handle": "filesystem"
     },
     {

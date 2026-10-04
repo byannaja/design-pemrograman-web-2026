@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXISTS db_inventaris_toko;
+USE db_inventaris_toko;
+
+DROP TABLE IF EXISTS barang;
+CREATE TABLE barang (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    kode_barang VARCHAR(20) UNIQUE NOT NULL,
+    nama_barang VARCHAR(100) NOT NULL,
+    kategori VARCHAR(50) NOT NULL,
+    stok INT(11) NOT NULL DEFAULT 0,
+    harga_satuan DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
