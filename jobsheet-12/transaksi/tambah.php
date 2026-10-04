@@ -20,7 +20,7 @@ unset($_SESSION['form_error']);
     <?php endif; ?>
 
     <?php if (!$barangList): ?>
-        <div class="bg-amber-50 border border-amber-200 text-amber-900 p-4 rounded-lg mb-5 text-sm">Belum ada barang. Tambahkan data barang terlebih dahulu di Jobsheet 11.</div>
+        <div class="bg-amber-50 border border-amber-200 text-amber-900 p-4 rounded-lg mb-5 text-sm">Belum ada barang. Tambahkan data barang terlebih dahulu.</div>
     <?php endif; ?>
 
     <div class="card-box">
