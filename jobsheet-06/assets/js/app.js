@@ -20,8 +20,6 @@ async function muatDataJSON(
 
     try {
 
-        // Latihan 8.4 nomor 5
-        // Delay diubah dari 600 ms menjadi 3000 ms
         await new Promise(function (resolve) {
             setTimeout(resolve, 3000);
         });
@@ -75,7 +73,7 @@ async function muatDataJSON(
 
 
 // ======================================================
-// HAMBURGER MENU
+// HAMBURGER MENU (DIPERBAIKI UNTUK SIDEBAR)
 // ======================================================
 
 function initNavToggle() {
@@ -84,7 +82,8 @@ function initNavToggle() {
         document.getElementById("nav-toggle-btn");
 
     const nav =
-        document.querySelector("header nav");
+        document.getElementById("sidebar-nav") ||
+        document.querySelector("sidebar nav");
 
     if (!toggleBtn || !nav) return;
 
@@ -109,7 +108,6 @@ function initHapusConfirm() {
         "click",
         function (e) {
 
-            // Latihan 8.4 nomor 4
             console.log(e.target);
 
             const btn =
@@ -337,11 +335,6 @@ function initValidasiForm() {
 
             let valid = true;
 
-
-            // ------------------------------------------
-            // JUDUL / NAMA
-            // ------------------------------------------
-
             const judul =
                 form.querySelector(
                     "[name='judul'], [name='nama']"
@@ -365,11 +358,6 @@ function initValidasiForm() {
 
             }
 
-
-            // ------------------------------------------
-            // PENGARANG
-            // ------------------------------------------
-
             const pengarang =
                 form.querySelector(
                     "[name='pengarang']"
@@ -392,11 +380,6 @@ function initValidasiForm() {
                 hapusError(pengarang);
 
             }
-
-
-            // ------------------------------------------
-            // TAHUN
-            // ------------------------------------------
 
             const tahun =
                 form.querySelector(
@@ -432,11 +415,6 @@ function initValidasiForm() {
 
             }
 
-
-            // ------------------------------------------
-            // STOK
-            // ------------------------------------------
-
             const stok =
                 form.querySelector(
                     "[name='stok']"
@@ -469,11 +447,6 @@ function initValidasiForm() {
                 }
 
             }
-
-
-            // ------------------------------------------
-            // CEGAH SUBMIT JIKA TIDAK VALID
-            // ------------------------------------------
 
             if (!valid) {
 

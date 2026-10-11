@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Buku - SIMPUS-Mini</title>
+    <!-- Jalur CSS naik satu level ke assets -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <sidebar>
+            <div class="sidebar-header">
+                <h1>SIMPUS-Mini</h1>
+                <!-- Tombol Hamburger khusus tampilan mobile -->
+                <button id="nav-toggle-btn" class="nav-toggle-btn" type="button">&#9776;</button>
+            </div>
+            <nav id="sidebar-nav">
+                <ul>
+                    <li><a href="../index.html">Beranda</a></li>
+                    <li><a href="../buku/list1.html">Daftar Buku</a></li>
+                    <li><a href="../buku/tambah1.html">Tambah Buku</a></li>
+                    <li><a href="../anggota/list.html">Daftar Anggota</a></li>
+                    <li><a href="../anggota/tambah.html">Daftar Anggota</a></li>
+                </ul>
+            </nav>
+        </sidebar>
+
+
+        <!-- KONTEN UTAMA -->
+        <div class="main-wrapper">
+            <main>
+                <section>
+                    <h2>Daftar Buku</h2>
+                    
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Cari berdasarkan judul buku...">
+                        <button type="button" id="btn-reload">Muat Ulang</button>
+                    </div>
+                    <p id="table-counter"></p>
+                    <p id="loading-indicator" style="display: none;">Memuat data...</p>
+
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Judul</th>
+                                    <th>Pengarang</th>
+                                    <th>Tahun</th>
+                                    <th>Stok</th>
+                                    <th>Kategori</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+
+            <footer>
+                <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 6</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/buku.js"></script>
+</body>
+</html>
