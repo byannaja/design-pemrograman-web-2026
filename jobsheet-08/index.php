@@ -20,59 +20,9 @@ try {
     $totalAset = 0;
     $listBarang = [];
 }
+$currentPage = 'dashboard';
+include __DIR__ . '/includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Inventaris Toko</title>
-
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <link rel="stylesheet" href="/jobsheet-08/assets/css/style.css">
-</head>
-
-<body class="bg-gray-50 text-gray-800">
-
-    <header class="bg-slate-900 text-white shadow-md border-b-2 border-amber-500">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-
-            <h1 class="text-xl font-bold tracking-wide flex items-center gap-2">
-                Inventaris Toko
-            </h1>
-
-            <nav>
-                <ul class="flex space-x-6 text-sm font-medium">
-
-                    <li>
-                        <a href="/jobsheet-08/index.php"
-                           class="text-amber-400 font-semibold">
-                            Dashboard
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/jobsheet-08/barang/list.php"
-                           class="hover:text-amber-400 transition">
-                            Daftar Barang
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/jobsheet-08/barang/tambah.php"
-                           class="hover:text-amber-400 transition">
-                            Tambah Barang
-                        </a>
-                    </li>
-
-                </ul>
-            </nav>
-
-        </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-4 py-8">
 
         <div class="mb-8">
             <h2 class="text-2xl font-bold text-slate-900">
@@ -139,9 +89,25 @@ try {
 
             </div>
 
+            <div class="search-controls px-6 pt-4">
+                <div class="flex-1">
+                    <label for="dashboard-search">Cari data barang</label>
+                    <input
+                        type="search"
+                        id="dashboard-search"
+                        placeholder="Cari nama, stok, atau harga..."
+                        data-search-table="dashboard-table"
+                        <?= empty($listBarang) ? 'disabled' : '' ?>
+                    >
+                </div>
+                <p class="search-status" data-search-status="dashboard-table" aria-live="polite">
+                    <?= count($listBarang) ?> barang tersedia.
+                </p>
+            </div>
+
             <div class="overflow-x-auto">
 
-                <table class="w-full text-left border-collapse">
+                <table id="dashboard-table" class="w-full text-left border-collapse">
 
                     <thead>
                         <tr class="bg-gray-50 text-gray-600 text-sm border-b border-gray-200">
@@ -177,25 +143,25 @@ try {
 
                             <?php foreach ($listBarang as $row): ?>
 
-                                <tr class="hover:bg-gray-50 transition">
+                                <tr class="hover:bg-gray-50 transition" data-search-row>
 
                                     <td class="py-3 px-6 font-medium text-gray-500">
                                         <?= $no++; ?>
                                     </td>
 
-                                    <td class="py-3 px-6 font-semibold text-slate-900">
+                                    <td class="py-3 px-6 font-semibold text-slate-900" data-searchable>
                                         <?= htmlspecialchars($row['nama_barang'] ?? ''); ?>
                                     </td>
 
-                                    <td class="py-3 px-6">
+                                    <td class="py-3 px-6" data-searchable>
                                         <?= htmlspecialchars($row['stok'] ?? 0); ?>
                                     </td>
 
-                                    <td class="py-3 px-6">
+                                    <td class="py-3 px-6" data-searchable>
                                         Rp <?= number_format($row['harga_satuan'] ?? 0, 0, ',', '.'); ?>
                                     </td>
 
-                                    <td class="py-3 px-6 font-medium text-amber-600">
+                                    <td class="py-3 px-6 font-medium text-amber-600" data-searchable>
                                         Rp <?= number_format(
                                             ($row['stok'] ?? 0) * ($row['harga_satuan'] ?? 0),
                                             0,
@@ -220,6 +186,13 @@ try {
                             </tr>
 
                         <?php endif; ?>
+                        <?php if (!empty($listBarang)): ?>
+                            <tr data-search-empty hidden>
+                                <td colspan="5" class="py-6 text-center text-gray-400">
+                                    Barang yang dicari tidak ditemukan.
+                                </td>
+                            </tr>
+                        <?php endif; ?>
 
                     </tbody>
 
@@ -229,15 +202,4 @@ try {
 
         </div>
 
-    </main>
-
-    <footer class="bg-white border-t border-gray-200 mt-12 py-4 text-center text-sm text-gray-500">
-
-        <p>
-            &copy; Toserba Prikitiw &mdash; Sistem Manajemen Inventaris
-        </p>
-
-    </footer>
-
-</body>
-</html>
+<?php include __DIR__ . '/includes/footer.php'; ?>

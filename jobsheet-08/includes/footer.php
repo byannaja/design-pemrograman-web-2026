@@ -6,5 +6,6 @@
         </p>
     </footer>
 
+    <script src="/jobsheet-08/assets/js/app.js" defer></script>
 </body>
 </html>

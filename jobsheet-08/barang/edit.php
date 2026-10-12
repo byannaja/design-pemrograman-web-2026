@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Semua kolom wajib diisi!";
     }
 }
+$currentPage = 'barang';
 ?>
 <?php include __DIR__ . '/../includes/header.php'; ?>
 

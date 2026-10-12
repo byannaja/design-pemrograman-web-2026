@@ -378,3 +378,12 @@ footer {
         padding: 1rem;
     }
 }
+
+.tombol .btn {
+    color: #f9f9fa;
+    background-color: #374151;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+}

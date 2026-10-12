@@ -6,6 +6,7 @@ unset($_SESSION['flash']);
 
 $stmt = $pdo->query("SELECT * FROM barang ORDER BY id DESC");
 $daftar_barang = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$currentPage = 'barang';
 ?>
 <?php include __DIR__ . '/../includes/header.php'; ?>
 
@@ -19,6 +20,23 @@ $daftar_barang = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </a>
 </div>
 
+<div class="search-controls">
+    <div class="flex-1">
+        <label for="barang-search">Cari barang</label>
+        <input
+            type="search"
+            id="barang-search"
+            class="form-input"
+            placeholder="Cari kode, nama, kategori, stok, atau harga..."
+            data-search-table="barang-table"
+            <?= empty($daftar_barang) ? 'disabled' : '' ?>
+        >
+    </div>
+    <p class="search-status" data-search-status="barang-table" aria-live="polite">
+        <?= count($daftar_barang) ?> barang tersedia.
+    </p>
+</div>
+
 <?php if (!empty($flash)): ?>
     <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 p-4 rounded-lg mb-6 text-sm">
         <?= htmlspecialchars($flash) ?>
@@ -27,7 +45,7 @@ $daftar_barang = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="table-container">
     <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse">
+        <table id="barang-table" class="w-full text-left border-collapse">
             <thead>
                 <tr class="bg-slate-100 text-slate-700 text-xs uppercase font-semibold tracking-wider">
                     <th class="py-3 px-4">No</th>
@@ -46,23 +64,26 @@ $daftar_barang = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </tr>
                 <?php else: ?>
                     <?php $no = 1; foreach ($daftar_barang as $b): ?>
-                    <tr class="hover:bg-gray-50">
+                    <tr class="hover:bg-gray-50" data-search-row>
                         <td class="py-3 px-4"><?= $no++; ?></td>
-                        <td class="py-3 px-4 font-medium text-slate-900"><?= htmlspecialchars($b['kode_barang']) ?></td>
-                        <td class="py-3 px-4"><?= htmlspecialchars($b['nama_barang']) ?></td>
-                        <td class="py-3 px-4">
+                        <td class="py-3 px-4 font-medium text-slate-900" data-searchable><?= htmlspecialchars($b['kode_barang']) ?></td>
+                        <td class="py-3 px-4" data-searchable><?= htmlspecialchars($b['nama_barang']) ?></td>
+                        <td class="py-3 px-4" data-searchable>
                             <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full text-xs font-medium">
                                 <?= htmlspecialchars($b['kategori']) ?>
                             </span>
                         </td>
-                        <td class="py-3 px-4"><?= htmlspecialchars($b['stok']) ?></td>
-                        <td class="py-3 px-4">Rp <?= number_format($b['harga_satuan'], 0, ',', '.') ?></td>
+                        <td class="py-3 px-4" data-searchable><?= htmlspecialchars($b['stok']) ?></td>
+                        <td class="py-3 px-4" data-searchable>Rp <?= number_format($b['harga_satuan'], 0, ',', '.') ?></td>
                         <td class="py-3 px-4 text-center space-x-2">
                             <a href="edit.php?id=<?= $b['id'] ?>" class="btn-info">Edit</a>
                             <a href="hapus.php?id=<?= $b['id'] ?>" onclick="return confirm('Yakin ingin menghapus barang ini?')" class="btn-danger">Hapus</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
+                    <tr data-search-empty hidden>
+                        <td colspan="7" class="text-center py-6 text-gray-500">Barang yang dicari tidak ditemukan.</td>
+                    </tr>
                 <?php endif; ?>
             </tbody>
         </table>

@@ -143,3 +143,99 @@
 .table-container tbody tr:hover {
     background-color: #f8fafc;
 }
+
+.nav-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.5rem;
+    background: transparent;
+    color: #ffffff;
+    font: inherit;
+    cursor: pointer;
+}
+
+.nav-toggle svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-width: 2;
+}
+
+.search-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.search-controls label {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: #334155;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.search-controls input {
+    width: min(100%, 24rem);
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5rem;
+    padding: 0.625rem 0.75rem;
+    font: inherit;
+    font-size: 0.875rem;
+}
+
+.search-controls input:focus {
+    border-color: #f59e0b;
+    outline: 2px solid rgba(245, 158, 11, 0.2);
+}
+
+.search-status {
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+@media (max-width: 639px) {
+    .nav-header-inner {
+        flex-wrap: wrap;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+    }
+
+    header nav {
+        display: none !important;
+        width: 100%;
+        margin-top: 0.75rem;
+    }
+
+    header nav.nav-open {
+        display: block !important;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    header nav a {
+        display: block;
+        padding: 0.625rem 0;
+    }
+
+    .search-controls {
+        align-items: stretch;
+    }
+
+    .search-controls input {
+        width: 100%;
+    }
+}
